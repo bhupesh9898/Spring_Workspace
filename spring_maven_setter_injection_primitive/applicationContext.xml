@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="student" class="com.zensar.spring.beans.Student" scope="prototype">
+		<!-- Setter Injection -->
+		<property name="studentId" value="101"></property>
+		<property name="studentName" value="Gourav"></property>
+		<property name="studentMarks">
+			<value>85</value>
+		</property>
+		<property name="address">
+		<!-- Inner Bean -->
+			<bean  class="com.zensar.spring.beans.Address">
+				<property name="pincode" value="415423"></property>
+				<property name="city" value="indore"></property>
+				<property name="state" value="mp"></property>
+			</bean>
+
+		</property>
+	</bean>
+
+</beans>

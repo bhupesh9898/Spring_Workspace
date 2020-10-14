@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="student" class="com.zensar.spring.beans.Student">
+		<!-- Setter Injection -->
+		<property name="studentId" value="101"></property>
+		<property name="studentName">
+			<list>
+				<value>Gourav</value>
+				<value>Gattu</value>
+			</list>
+
+		</property>
+		<property name="studentMarks">
+			<value>85</value>
+		</property>
+		<property name="address">
+			<set>
+				<ref bean="addres1" />
+				<ref bean="addres2" />
+			</set>
+		</property>
+		<property name="certification">
+			<map>
+				<entry key="java" value-ref="cert">
+				</entry>
+			</map>
+		</property>
+
+		<property name="books">
+			<props>
+				<prop key="Maths">RD Sharma</prop>
+				<prop key="Science">Pradeeps</prop>
+			</props>
+		</property>
+		<property name="hobbies">
+			<!-- <array> can be used here -->
+			<list>
+				<value>reading</value>
+				<value>Playing</value>
+				<value>Singing</value>
+
+			</list>
+		</property>
+
+	</bean>
+
+	<bean id="addres1" class="com.zensar.spring.beans.Address">
+		<!-- Setter Injection -->
+		<property name="pincode" value="452014"></property>
+		<property name="city" value="Indore"></property>
+		<property name="state">
+			<value>Madhya Pardesh</value>
+		</property>
+
+	</bean>
+
+	<bean id="addres2" class="com.zensar.spring.beans.Address">
+		<!-- Setter Injection -->
+		<property name="pincode" value="453555"></property>
+		<property name="city" value="Ratlam"></property>
+		<property name="state">
+			<value>Madhya Pardesh</value>
+		</property>
+
+	</bean>
+
+	<bean id="cert" class="com.zensar.spring.beans.Certification">
+		<!-- Setter Injection -->
+		<property name="certificationId" value="1001"></property>
+		<property name="certificationName" value="OCJP"></property>
+
+
+	</bean>
+</beans>

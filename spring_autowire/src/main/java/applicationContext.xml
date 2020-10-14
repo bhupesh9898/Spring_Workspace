@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- AutoWire ByName -->
+	<bean id="student" class="com.zensar.spring.beans.Student"
+		autowire="byName">
+		<property name="studentId" value="108"></property>
+		<property name="studentName" value="amit"></property>
+		<property name="studentMarks">
+			<value>85</value>
+		</property>
+	</bean>
+	<bean name="address2" class="com.zensar.spring.beans.Address">
+		<property name="pincode" value="546412"></property>
+		<property name="city" value="indore"></property>
+		<property name="state">
+			<value>MP</value>
+		</property>
+	</bean>
+	<bean name="address1" class="com.zensar.spring.beans.Address">
+		<property name="pincode" value="5444545"></property>
+		<property name="city" value="dbfg"></property>
+		<property name="state">
+			<value>UP</value>
+		</property>
+	</bean>
+
+
+	<!-- AutoWire ByType <bean id="student" class="com.zensar.spring.beans.Student" 
+		autowire="byType"> <property name="studentId" value="108"></property> <property 
+		name="studentName" value="amit"></property> <property name="studentMarks"> 
+		<value>85</value> </property> </bean> <bean id="address" class="com.zensar.spring.beans.Address"> 
+		<property name="pincode" value="546412"></property> <property name="city" 
+		value="Pune"></property> <property name="state"> <value>MP</value> </property> 
+		</bean> <bean id="address1" class="com.zensar.spring.beans.Address" autowire-candidate="false" 
+		> <property name="pincode" value="546412"></property> <property name="city" 
+		value="indore"></property> <property name="state"> <value>MP</value> </property> 
+		</bean> -->
+
+	<!-- AutoWire Constructor <bean id="student" class="com.zensar.spring.beans.Student" 
+		autowire="constructor"> <property name="studentId" value="108"></property> 
+		<property name="studentName" value="amit"></property> <property name="studentMarks"> 
+		<value>85</value> </property> </bean> <bean id="address" class="com.zensar.spring.beans.Address"> 
+		<property name="pincode" value="546412"></property> <property name="city" 
+		value="Goa"></property> <property name="state"> <value>MAha</value> </property> 
+		</bean> -->
+
+</beans>
