@@ -24,7 +24,7 @@ public class EmployeeResource {
 
 	public EmployeeResource() {
 
-		System.out.println("Inside Constructor()...........!!!");
+		System.out.println("Inside Constructor()...!!!");
 		employees.add(new Employee(101, "Gourav", 10006));
 		employees.add(new Employee(102, "Avina", 10005));
 		employees.add(new Employee(103, "Amit", 10002));
