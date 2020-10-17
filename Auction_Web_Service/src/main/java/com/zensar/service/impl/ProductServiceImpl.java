@@ -1,5 +1,7 @@
 package com.zensar.service.impl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,13 +26,19 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public void createProduct(Product product) {
 		productRepository.save(product);
-		productRepository.createEvent();
+		//productRepository.createEvent();
 	}
 
 
 	@Override
 	public Product getProductDetailsById(int productId) {
-		return productRepository.findById(productId).get();	
+		Optional<Product> product = productRepository.findById(productId);
+		
+		boolean isPresent=product.isPresent();	
+		if(isPresent)
+			return product.get();
+		else
+			return null;
 	}
 
 	@Override

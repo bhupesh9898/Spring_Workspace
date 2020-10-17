@@ -30,11 +30,11 @@ public class ProductResource {
 	private ProductCategoryService productCategoryService;
 
 	@PostMapping(value = "/sell/product")
-	public ResponseEntity<String> sellProduct(@RequestBody Product product, HttpServletRequest request,String productCategoryName) {
+	public ResponseEntity<String> sellProduct(@RequestBody Product product, HttpServletRequest request) {
 		User user = (User) request.getSession().getAttribute("user");
-		if (user != null) {
+		if (user != null && user.getUserProfile().equalsIgnoreCase("Seller")) {
 			product.setUser(user);
-			product.setProductCategory(productCategoryService.getProductCategoryByName(productCategoryName));
+			product.setProductCategory(productCategoryService.getProductCategoryByName(product.getProductCategory().getProductCategoryName()));
 			productService.createProduct(product);
 			return new ResponseEntity<String>("Product Created", HttpStatus.CREATED);
 		}else {

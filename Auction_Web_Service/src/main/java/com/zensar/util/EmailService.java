@@ -15,7 +15,7 @@ import com.sun.mail.smtp.SMTPTransport;
 
 public class EmailService {	
 	
-    public static void sendEmail(String senderEmail,String recipientEmail, String subject, String message) throws AddressException, MessagingException {
+    public static void sendEmail(String recipientEmail, String subject, String message) throws AddressException, MessagingException {
         
     	Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
     	String senderMailId = "gouravdrive1@gmail.com";

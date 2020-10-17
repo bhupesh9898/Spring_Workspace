@@ -1,5 +1,7 @@
 package com.zensar.service.impl;
 
+import javax.mail.MessagingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,6 +9,7 @@ import com.zensar.model.Mail;
 import com.zensar.model.User;
 import com.zensar.repository.UserRepository;
 import com.zensar.service.UserService;
+import com.zensar.util.EmailService;
 import com.zensar.util.EmailVerificationAndValidation;
 import com.zensar.util.EncryptDecryptPassword;
 
@@ -18,8 +21,12 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public int sendMail(Mail mail) {
-		// TODO Auto-generated method stub
-		return 0;
+		try {
+			EmailService.sendEmail(mail.getRecipientEmailAddress(), mail.getSubject(), mail.getMessage());
+			return 100;
+		} catch (MessagingException e) {
+			return 200;
+		}
 	}
 
 	@Override

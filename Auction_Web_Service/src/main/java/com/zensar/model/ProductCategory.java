@@ -1,7 +1,6 @@
 package com.zensar.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -38,6 +39,7 @@ public class ProductCategory implements Serializable {
 	private String productCategoryName;
 
 	@ToString.Exclude
+	@JsonManagedReference
 	@OneToMany(fetch = FetchType.EAGER,mappedBy = "productCategory", cascade = CascadeType.ALL)
 	private List<Product> products;
 }
