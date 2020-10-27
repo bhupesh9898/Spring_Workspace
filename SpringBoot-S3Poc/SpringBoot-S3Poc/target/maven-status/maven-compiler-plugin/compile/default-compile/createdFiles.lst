@@ -1,0 +1,3 @@
+com\fico\s3poc\serviceimpl\AmazonClient.class
+com\fico\s3poc\AppStart.class
+com\fico\s3poc\controller\BucketController.class

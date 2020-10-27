@@ -1,0 +1,13 @@
+amazonProperties:
+   endpointUrl: https://s3.ap-south-1.amazonaws.com
+   accessKey: AKIARYKYF6XZX3YYKSTS
+   secretKey: 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
+   bucketName: demoforauction/images
+spring:
+ servlet:
+  multipart:
+   max-file-size: 100MB
+   max-request-size: 100MB
+ 
+server:
+  port: 8082
